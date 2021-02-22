@@ -1,1 +1,1 @@
-print("welcome to richard new bruch ")
+print("welcome to richard new bruch - checking ß")
