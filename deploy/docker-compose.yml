@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  mongodb:
+    image: "mongo:4.2"
+    restart: "unless-stopped"
+    env_file:
+      - ../.env
+    container_name: "media-service-mongo"
+    ports:
+      - "27017:27017"
+    volumes:
+      - forest_mongo_data_container:/data/db
+      - ./scripts/init-mongo-db.sh:/docker-entrypoint-initd/init.sh:ro
+    networks:
+      - forest-admin
+volumes:
+  forest_mongo_data_container:
+networks:
+  forest-admin: null
